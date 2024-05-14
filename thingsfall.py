@@ -21,6 +21,6 @@ class fall:
         if self.pos_y>=650:
             self.pos_y=0
             self.pos_x=random.randint(0,1200)
-            self.speed=random.randint(3,10)
+            self.speed=random.randint(5,10)
     def surja(self,tela):
-        tela.blit(self.imagem, (self.pos_x,self.pos_y))
+        tela.blit(self.imagem,(self.pos_x,self.pos_y))

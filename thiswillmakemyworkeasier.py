@@ -9,6 +9,7 @@ class playercls:
 
         self.pos_x=x
         self.pos_y=y
+        self.mask = pygame.mask.from_surface(self.imagem) 
 
     def surja(self,tela):
         tela.blit(self.imagem, (self.pos_x,self.pos_y))
@@ -16,6 +17,6 @@ class playercls:
     def move(self,right,left):
         moving=pygame.key.get_pressed()
         if moving[right]:
-            self.pos_x += 5
+            self.pos_x += 7
         if moving[left]:
-            self.pos_x -= 5
+            self.pos_x -= 7.50

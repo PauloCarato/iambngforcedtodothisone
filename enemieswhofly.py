@@ -10,6 +10,7 @@ class enemy:
         self.pos_x=x
         self.pos_y=y
         self.speed=8
+        self.mask = pygame.mask.from_surface(self.imagem) #this specific line wasnt code by me (sorry i'm lazy)
 
     def surja(self,tela):
         tela.blit(self.imagem, (self.pos_x,self.pos_y))

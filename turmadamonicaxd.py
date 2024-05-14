@@ -17,8 +17,8 @@ fundo=pygame.image.load('images/street.png')
 
     ###sprites###
 playerI= playercls('images/aicarumba.png',50,90,550,525)
-vilain=enemy('images/ohno.png', 90,70,0,0)
-bomb=things('images/bomba1.png',20,20,100,100)
+# vilain=enemy('images/ohno.png', 90,70,0,0)
+bomb=things('images/bomba1.png',20,20)
 
 fps = pygame.time.Clock()
 running=True
@@ -31,14 +31,18 @@ while running:
     playerI.surja(screen)
     playerI.move(pygame.K_d,pygame.K_a)
 #enemy
-    vilain.surja(screen)
-    vilain.voa()
+    # vilain.surja(screen)
+    # vilain.voa()
 #thingsfallin'
     bomb.surja(screen)
     bomb.cai()
+#hitbox
+    if playerI.mask.overlap(bomb.mask, (bomb.pos_x - playerI.pos_x,bomb.pos_y - playerI.pos_y)):
+        playerI.pos_x=550
+        playerI.pos_y=525
 
     pygame.display.update()
-    fps.tick(60)
+    fps.tick(80)
     #paralax here
 
     #MAN I'M LOVING THAT SHIT WHAT

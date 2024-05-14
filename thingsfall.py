@@ -9,6 +9,8 @@ class things:
         self.largura = largura
         self.altura = altura
 
+        self.imagem = pygame.transform.scale(self.imagem,(self.largura,self.altura))
+
         self.pos_x=random.randint(0,1200)
         self.pos_y=0
         self.speed=9

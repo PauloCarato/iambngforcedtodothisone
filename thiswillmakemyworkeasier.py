@@ -19,4 +19,4 @@ class playercls:
         if moving[right]:
             self.pos_x += 7
         if moving[left]:
-            self.pos_x -= 7.50
+            self.pos_x -= 7.25

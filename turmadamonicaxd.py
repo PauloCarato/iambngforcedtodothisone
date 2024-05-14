@@ -3,6 +3,7 @@ from thiswillmakemyworkeasier import *
 from enemieswhofly import *
 from thingsfall import *
 
+point=0
 #it will be bad
 
 pygame.init()
@@ -18,8 +19,8 @@ fundo=pygame.image.load('images/street.png')
     ###sprites###
 playerI= playercls('images/aicarumba.png',50,90,550,525)
 # vilain=enemy('images/ohno.png', 90,70,0,0)
-bomb=things('images/bomba1.png',32,32)
-soja=things('images/soja.png',80,80)
+bomb= fall('images/bomba1.png',32,32)
+soja= fall('images/soja.png',80,80)
 
 fps = pygame.time.Clock()
 running=True
@@ -41,10 +42,15 @@ while running:
     soja.cai()
 #hitbox
     if playerI.mask.overlap(bomb.mask, (bomb.pos_x - playerI.pos_x,bomb.pos_y - playerI.pos_y)):
-        playerI.pos_x=550
-        playerI.pos_y=525
+        print('u lost u r bad')
         running=False
+    if playerI.mask.overlap(soja.mask, (soja.pos_x - playerI.pos_x,soja.pos_y - playerI.pos_y)):
+        point+=1
 
+    Score = texto.render(f"Pontuação: {point}", True,(0,0,255))
+    screen.blit(Score,(0,10))
+    if point >= 100:
+        print('u won')
     pygame.display.update()
     fps.tick(80)
     #paralax here

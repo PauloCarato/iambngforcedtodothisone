@@ -1,8 +1,9 @@
 import pygame
 import random
+from thiswillmakemyworkeasier import *
 
 
-class things:
+class fall:
     def __init__(self,arquivoimagem,largura,altura):
         self.imagem = pygame.image.load(arquivoimagem)
 
@@ -13,12 +14,13 @@ class things:
 
         self.pos_x=random.randint(0,1200)
         self.pos_y=0
-        self.speed=9
+        self.speed=random.randint(0,15)
         self.mask = pygame.mask.from_surface(self.imagem)
     def cai(self):
         self.pos_y += self.speed
         if self.pos_y>=650:
             self.pos_y=0
             self.pos_x=random.randint(0,1200)
+            self.speed=random.randint(3,10)
     def surja(self,tela):
         tela.blit(self.imagem, (self.pos_x,self.pos_y))

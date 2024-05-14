@@ -13,13 +13,9 @@ class playercls:
     def surja(self,tela):
         tela.blit(self.imagem, (self.pos_x,self.pos_y))
 
-    def move(self,right,left,up,down):
+    def move(self,right,left):
         moving=pygame.key.get_pressed()
         if moving[right]:
             self.pos_x += 5
         if moving[left]:
             self.pos_x -= 5
-        if moving[up]:
-            self.pos_y -= 5
-        if moving[down]:
-            self.pos_y += 5

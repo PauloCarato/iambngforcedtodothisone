@@ -1,6 +1,7 @@
 import pygame
 
-class enemy:
+
+class things:
     def __init__(self,arquivoimagem,largura,altura,x,y):
         self.imagem = pygame.image.load(arquivoimagem)
 
@@ -10,12 +11,9 @@ class enemy:
         self.pos_x=x
         self.pos_y=y
         self.speed=8
-
+    def cai(self):
+        self.pos_y += self.speed
+        if self.pos_y>=650:
+            self.pos_y=0
     def surja(self,tela):
         tela.blit(self.imagem, (self.pos_x,self.pos_y))
-    def voa(self):
-        self.pos_x += self.speed
-        if self.pos_x>=1200:
-            self.pos_x=-300
-
-#hope it works
